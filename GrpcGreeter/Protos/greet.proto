@@ -4,18 +4,18 @@ option csharp_namespace = "GrpcGreeter";
 
 package greet;
 
-// The greeting service definition.
+// 定义 Greeter 服务
 service Greeter {
-  // Sends a greeting
+  // Greeter 服务定义 SayHello 调用.SayHello 发送 HelloRequest 消息并接收 HelloReply 消息
   rpc SayHello (HelloRequest) returns (HelloReply);
 }
 
-// The request message containing the user's name.
+// HelloRequest 消息
 message HelloRequest {
   string name = 1;
 }
 
-// The response message containing the greetings.
+// HelloReply 消息
 message HelloReply {
   string message = 1;
 }

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcExample";
+
+package example;
+
+service Example {
+  // 一元类型方法
+  rpc UnaryCall (ExampleRequest) returns (ExampleResponse);
+
+  // 服务器流式处理
+  rpc StreamingFromServer (ExampleRequest) returns (stream ExampleResponse);
+
+  // 服务器流式处理2
+  rpc StreamingFromServer2 (ExampleRequest) returns (stream ExampleResponse);
+
+  // 客户端流式处理
+  rpc StreamingFromClient (stream ExampleRequest) returns (ExampleResponse);
+
+  // 客户端流式处理2
+  rpc StreamingFromClient2 (stream ExampleRequest) returns (ExampleResponse);
+
+  // 双向流式处理
+  rpc StreamingBothWays (stream ExampleRequest) returns (stream ExampleResponse);
+
+  // 双向流式处理
+  rpc StreamingBothWays2 (stream ExampleRequest) returns (stream ExampleResponse);
+}
+// 请求消息
+message ExampleRequest {
+    int32 pageIndex = 1;
+    int32 pageSize = 2;
+    bool isDescending = 3;
+}
+
+// 请求消息
+message ExampleResponse {
+    string message = 1;
+}
